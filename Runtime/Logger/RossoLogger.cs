@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Rossoforge.Utils.Logger
 {
@@ -10,6 +11,20 @@ namespace Rossoforge.Utils.Logger
         {
             get => Current.Level;
             set => Current.Level = value;
+        }
+
+        static RossoLogger()
+        {
+            LoadSettings();
+        }
+
+        private static void LoadSettings()
+        {
+            var settings = Resources.Load<LoggerSettings>("RossoLoggerSettings");
+            if (settings != null)
+            {
+                Current.Level = settings.LogLevel;
+            }
         }
 
         public static void Verbose(string message) => Current.Verbose(message);
