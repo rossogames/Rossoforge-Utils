@@ -33,7 +33,8 @@ namespace Rossoforge.Utils.Logger
 
         public void Exception(Exception ex)
         {
-            Debug.LogException(ex);
+            if (Level > LogLevel.None)
+                Debug.LogException(ex);
         }
     }
 }
