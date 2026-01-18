@@ -1,0 +1,18 @@
+{
+  "name": "com.rossogames.rossoforge-utils",
+  "version": "1.3.0",
+  "displayName": "Rossoforge-Utils",
+  "description": "General purpose utility package for the Rossoforge ecosystem. Provides common reusable components such as a configurable logging system, a lightweight state machine implementation, and file handling utilities.",
+  "unity": "2025.0",
+  "author": {
+    "name": "Agustin Rosso",
+    "url": "https://www.linkedin.com/in/rossoagustin/"
+  },
+  "keywords": [
+    "state machine",
+    "Logger",
+    "Files",
+    "rossogames",
+    "rossoforge"
+  ]
+}
