@@ -8,7 +8,7 @@ namespace Rossoforge.Utils.Singleton
 
         public static T Instance => instance.Value;
 
-        protected Singleton() 
+        protected Singleton()
         {
         }
     }
