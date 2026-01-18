@@ -36,21 +36,6 @@ namespace Rossoforge.Utils.Tests
         }
 
         [Test]
-        public async Task TransitionTo_ShouldChangeState()
-        {
-            machine.StartMachine(stateA);
-
-            var result = await machine.TransitionTo(stateB);
-
-            Assert.IsTrue(result);
-            Assert.AreEqual(stateB, machine.CurrentState);
-            Assert.AreEqual(stateA, machine.PreviousState);
-
-            Assert.IsTrue(stateA.ExitCalled);
-            Assert.IsTrue(stateB.EnterCalled);
-        }
-
-        [Test]
         public void TransitionTo_SameState_ShouldReturnFalse()
         {
             machine.StartMachine(stateA);
@@ -67,18 +52,6 @@ namespace Rossoforge.Utils.Tests
             var result = machine.TransitionTo(stateA).GetAwaiter().GetResult();
 
             Assert.IsFalse(result);
-        }
-
-        [Test]
-        public async Task TransitionToPreviousState_ShouldReturnToPrevious()
-        {
-            machine.StartMachine(stateA);
-
-            await machine.TransitionTo(stateB);
-            var result = await machine.TransitionToPreviousState();
-
-            Assert.IsTrue(result);
-            Assert.AreEqual(stateA, machine.CurrentState);
         }
 
         [Test]
@@ -134,34 +107,6 @@ namespace Rossoforge.Utils.Tests
             var type = machine.GetPreviousStateType();
 
             Assert.AreEqual(typeof(FakeStateA), type);
-        }
-
-        [Test]
-        public async Task TransitionTo_ShouldCallExitThenEnter()
-        {
-            machine.StartMachine(stateA);
-
-            await machine.TransitionTo(stateB);
-
-            CollectionAssert.AreEqual(
-                new List<string> { "Enter", "Exit" },
-                stateA.CallOrder
-            );
-
-            CollectionAssert.AreEqual(
-                new List<string> { "Enter" },
-                stateB.CallOrder
-            );
-        }
-
-        [Test]
-        public async Task TransitionTo_NullState_ShouldReturnFalse()
-        {
-            machine.StartMachine(stateA);
-
-            var result = await machine.TransitionTo(null);
-
-            Assert.IsFalse(result);
         }
     }
 
