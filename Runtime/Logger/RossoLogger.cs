@@ -27,10 +27,34 @@ namespace Rossoforge.Utils.Logger
             }
         }
 
-        public static void Verbose(string message) => Current.Verbose(message);
-        public static void Info(string message) => Current.Info(message);
-        public static void Warning(string message) => Current.Warning(message);
-        public static void Error(string message) => Current.Error(message);
-        public static void Exception(Exception ex) => Current.Exception(ex);
+        public static void Verbose(string message)
+        {
+            if (Level >= LogLevel.Verbose)
+                Current.Verbose(message);
+        }
+
+        public static void Info(string message)
+        {
+            if (Level >= LogLevel.Info)
+                Current.Info(message);
+        }
+
+        public static void Warning(string message)
+        {
+            if (Level >= LogLevel.Warning)
+                Current.Warning(message);
+        }
+
+        public static void Error(string message)
+        {
+            if (Level >= LogLevel.Error)
+                Current.Error(message);
+        }
+
+        public static void Exception(Exception ex)
+        {
+            if (Level > LogLevel.None)
+                Current.Exception(ex);
+        }
     }
 }
