@@ -129,5 +129,10 @@ namespace Rossoforge.Utils.Tests
         public void Warning(string message) => WarningMessages.Add(message);
         public void Error(string message) => ErrorMessages.Add(message);
         public void Exception(Exception ex) => Exceptions.Add(ex);
+
+        public void OnLog(string condition, string stackTrace, UnityEngine.LogType type)
+        {
+            
+        }
     }
 }

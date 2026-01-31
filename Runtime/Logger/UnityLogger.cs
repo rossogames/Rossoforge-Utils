@@ -12,5 +12,10 @@ namespace Rossoforge.Utils.Logger
         public void Warning(string message) => Debug.LogWarning(message);
         public void Error(string message) => Debug.LogError(message);
         public void Exception(Exception ex) => Debug.LogException(ex);
+
+        public void OnLog(string condition, string stackTrace, LogType type)
+        {
+            // Handle Unity log messages if needed
+        }
     }
 }

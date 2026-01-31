@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Rossoforge.Utils.Logger
 {
@@ -11,5 +12,6 @@ namespace Rossoforge.Utils.Logger
         void Warning(string message);
         void Error(string message);
         void Exception(Exception ex);
+        void OnLog(string condition, string stackTrace, LogType type);
     }
 }

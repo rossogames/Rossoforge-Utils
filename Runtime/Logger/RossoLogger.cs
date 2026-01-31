@@ -16,6 +16,8 @@ namespace Rossoforge.Utils.Logger
         static RossoLogger()
         {
             LoadSettings();
+            RegisterUnhandledExceptions();
+            RegisterUnityLogCallback();
         }
 
         private static void LoadSettings()
@@ -55,6 +57,41 @@ namespace Rossoforge.Utils.Logger
         {
             if (Level > LogLevel.None)
                 Current.Exception(ex);
+        }
+
+        private static void RegisterUnhandledExceptions()
+        {
+            AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+        }
+
+        private static void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            if (e.ExceptionObject is Exception ex)
+            {
+                Current.OnLog(
+                    ex.Message,
+                    ex.StackTrace,
+                    LogType.Exception
+                );
+            }
+            else
+            {
+                Current.OnLog(
+                    e.ExceptionObject?.ToString() ?? "Unknown unhandled exception",
+                    string.Empty,
+                    LogType.Exception
+                );
+            }
+        }
+
+        private static void RegisterUnityLogCallback()
+        {
+            Application.logMessageReceived += OnUnityLog;
+        }
+
+        private static void OnUnityLog(string condition, string stackTrace, LogType type)
+        {
+            Current.OnLog(condition, stackTrace, type);
         }
     }
 }
