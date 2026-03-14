@@ -1,0 +1,18 @@
+{
+    "name": "Rossoforge.Utils.Editor",
+    "rootNamespace": "Rossoforge.Utils.Editor",
+    "references": [
+        "GUID:7533d169e9f01454ba898c5bce48fa7a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
