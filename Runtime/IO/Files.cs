@@ -14,6 +14,11 @@ namespace Rossoforge.Utils.IO
         {
             return File.ReadAllText(path);
         }
+        public static void Delete(string path)
+        {
+            if (Exists(path))
+                File.Delete(path);
+        }
 
         public static void WriteAllText(string path, string text, System.Text.Encoding encoding = null)
         {

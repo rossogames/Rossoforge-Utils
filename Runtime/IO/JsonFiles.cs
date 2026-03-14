@@ -14,7 +14,7 @@ namespace Rossoforge.Utils.IO
             try
             {
                 var json = Files.ReadAllText(path);
-                data = JsonUtility.FromJson<T>(json);
+                data = Deserialize<T>(json);
                 return true;
             }
             catch
@@ -25,8 +25,18 @@ namespace Rossoforge.Utils.IO
 
         public static void Save<T>(string path, T data)
         {
-            var json = JsonUtility.ToJson(data, true);
+            var json = Serialize(data);
             Files.WriteAllText(path, json);
+        }
+
+        public static string Serialize<T>(T data)
+        {
+            return JsonUtility.ToJson(data, true);
+        }
+
+        public static T Deserialize<T>(string json)
+        {
+            return JsonUtility.FromJson<T>(json);
         }
     }
 }
