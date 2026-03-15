@@ -6,18 +6,27 @@ namespace Rossoforge.Utils.IO
 {
     public static class Files
     {
-        public static bool Exists(string path)
+        public static bool ExistsFile(string path)
         {
             return File.Exists(path);
         }
+        public static bool ExistsDirectory(string path)
+        {
+            return Directory.Exists(path);
+        }
+
         public static string ReadAllText(string path)
         {
             return File.ReadAllText(path);
         }
-        public static void Delete(string path)
+
+        public static void DeleteFile(string path)
         {
-            if (Exists(path))
-                File.Delete(path);
+            File.Delete(path);
+        }
+        public static void DeleteDirectory(string path)
+        {
+            Directory.Delete(path, true);
         }
 
         public static void WriteAllText(string path, string text, System.Text.Encoding encoding = null)

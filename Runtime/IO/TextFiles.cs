@@ -6,7 +6,7 @@ namespace Rossoforge.Utils.IO
     {
         public static string Load(string path)
         {
-            if (!Files.Exists(path))
+            if (!Files.ExistsFile(path))
                 throw new FileNotFoundException(path);
 
             return Files.ReadAllText(path);
@@ -14,7 +14,7 @@ namespace Rossoforge.Utils.IO
 
         public static bool TryLoad(string path, out string text)
         {
-            if (!Files.Exists(path))
+            if (!Files.ExistsFile(path))
             {
                 text = null;
                 return false;

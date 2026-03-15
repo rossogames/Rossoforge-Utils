@@ -8,7 +8,7 @@ namespace Rossoforge.Utils.IO
         {
             data = default;
 
-            if (!Files.Exists(path))
+            if (!Files.ExistsFile(path))
                 return false;
 
             try
