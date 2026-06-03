@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Rossoforge.Utils.IO
 {
-    public static class PlayerPrefsStore
+    public static class PlayerPrefsStorage
     {
         // --------- SAVE ---------
         public static void SaveInt(string key, int value)
