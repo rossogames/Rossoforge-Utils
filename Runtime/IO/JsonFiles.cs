@@ -1,9 +1,15 @@
-﻿using UnityEngine;
+﻿using Newtonsoft.Json;
 
 namespace Rossoforge.Utils.IO
 {
     public static class JsonFiles
     {
+        private static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
+        {
+            Formatting = Formatting.Indented,
+            TypeNameHandling = TypeNameHandling.Auto
+        };
+
         public static bool TryLoad<T>(string path, out T data)
         {
             data = default;
@@ -31,12 +37,12 @@ namespace Rossoforge.Utils.IO
 
         public static string Serialize<T>(T data)
         {
-            return JsonUtility.ToJson(data, true);
+            return JsonConvert.SerializeObject(data, Settings);
         }
 
         public static T Deserialize<T>(string json)
         {
-            return JsonUtility.FromJson<T>(json);
+            return JsonConvert.DeserializeObject<T>(json, Settings);
         }
     }
 }
