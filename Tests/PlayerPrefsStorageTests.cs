@@ -1,6 +1,6 @@
 using NUnit.Framework;
-using UnityEngine;
 using Rossoforge.Utils.IO;
+using UnityEngine;
 
 namespace Rossoforge.Utils.Tests
 {
