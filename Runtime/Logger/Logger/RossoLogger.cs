@@ -22,7 +22,7 @@ namespace Rossoforge.Utils.Logger
 
         private static void LoadSettings()
         {
-            var settings = Resources.Load<LoggerDataConfig>("RossoLoggerSettings");
+            var settings = Resources.Load<LoggerDataTool>("RossoLoggerSettings");
             if (settings != null)
             {
                 Current.Level = settings.LogLevel;
