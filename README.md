@@ -12,6 +12,9 @@
 #
 **Version:** Unity 6 or higher
 
+**Dependencies:**
+* com.unity.nuget.newtonsoft-json
+
 #
 This package is part of the **Rossoforge** suite, designed to streamline and enhance Unity development workflows.
 

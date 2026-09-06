@@ -12,7 +12,7 @@ namespace Rossoforge.Utils.Editor
             PlayerPrefsStorage.DeleteAll();
             PlayerPrefsStorage.Save();
             RossoLogger.Info("Registry cleared successfully");
-            
+
             EditorUtility.DisplayDialog("Registry Clean", "Registry cleared successfully", "OK");
         }
     }

@@ -132,7 +132,7 @@ namespace Rossoforge.Utils.Tests
 
         public void OnLog(string condition, string stackTrace, UnityEngine.LogType type)
         {
-            
+
         }
     }
 }
